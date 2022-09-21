@@ -24,8 +24,10 @@ import TheHeader from "./mainLayout/TheHeader.vue";
   &__main {
     flex: 1 1 auto;
     margin-top: $header-mobile-height;
+    margin-bottom: 16px;
     @media (min-width: $md) {
       margin-top: $header-height;
+      margin-bottom: 30px;
     }
   }
   &__footer {

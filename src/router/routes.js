@@ -10,6 +10,14 @@ export default [
     component: HomeView,
   },
   {
+    path: "/:id",
+    name: "movie",
+    meta: {
+      title: "film description",
+    },
+    component: () => import("@/views/MovieView.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     meta: {

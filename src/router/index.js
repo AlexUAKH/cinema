@@ -7,7 +7,6 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  console.log("rooo: ", to.meta.title);
   if (to.meta.title) {
     document.title = `Cinema - ${to.meta.title}`;
   }

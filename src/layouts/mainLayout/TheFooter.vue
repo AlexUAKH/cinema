@@ -5,7 +5,11 @@
     <div>@{{ new Date().getFullYear() }}</div>
     <div>-</div>
     <strong>
-      <a href="https://github.com/AlexUAKH" target="_blank" rel="noreferrer">
+      <a
+        href="https://github.com/AlexUAKH/cinema"
+        target="_blank"
+        rel="noreferrer"
+      >
         AlexKHUA
       </a>
     </strong>

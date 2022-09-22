@@ -1,9 +1,10 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import GoBackButton from "../components/GoBackButton.vue";
 import { getMovie } from "../services/moviesService";
 const route = useRoute();
+const router = useRouter();
 const movie = ref({});
 const loading = ref(true);
 const error = ref("");
@@ -32,7 +33,12 @@ onMounted(() => fetchMovie());
       <div class="movie__head">
         <div class="movie__img">
           <img :src="movie.image" :alt="movie.name" />
-          <button class="movie__buy">Купити квиток</button>
+          <button
+            class="movie__buy"
+            @click="router.push(`/tickets?id=${movie.id}&title=${movie.name}`)"
+          >
+            Купити квиток
+          </button>
         </div>
         <div class="movie__params">
           <h1 class="movie__title">{{ movie.name }}</h1>
@@ -60,6 +66,7 @@ onMounted(() => fetchMovie());
   &__head {
     position: relative;
     display: flex;
+    flex-direction: column;
     &::before {
       content: "";
       position: absolute;
@@ -72,6 +79,9 @@ onMounted(() => fetchMovie());
       background-size: cover;
       opacity: 0.3;
     }
+    @media (min-width: $md) {
+      flex-direction: row;
+    }
   }
   &__img {
     flex: 0 0 30%;
@@ -79,28 +89,41 @@ onMounted(() => fetchMovie());
     justify-content: center;
     align-items: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
     & img {
       max-width: 100%;
       height: auto;
     }
   }
   &__buy {
-    position: absolute;
+    margin-top: 20px;
     width: 80%;
     padding: 5px;
     background: $accent;
     border: none;
     border-radius: 5px;
     bottom: 0;
+    cursor: pointer;
   }
   &__params {
-    width: 50%;
     font-size: 18px;
+    @media (max-width: $md) {
+      &:deep(ul) {
+        padding: 0;
+      }
+    }
+    @media (min-width: $lg) {
+      width: 50%;
+    }
   }
   &__additional :deep(li) {
     display: grid;
-    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-columns: 0.8fr 1.2fr;
     padding-top: 5px;
+    & p:first-child {
+      font-weight: 900;
+    }
   }
   &__title {
     font-size: 30px;

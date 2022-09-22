@@ -55,4 +55,10 @@ svg {
 }
 button {
   outline: none;
+  transition: 0.4s;
+  @media (min-width: $md) {
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }

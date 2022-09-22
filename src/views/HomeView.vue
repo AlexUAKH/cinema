@@ -2,13 +2,14 @@
 import { genres } from "@/genres";
 
 import { getAll } from "@/services/moviesService";
-import { onMounted, reactive, ref, watch } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 import MoviesList from "../components/MoviesList.vue";
 import TheGenres from "../components/TheGenres.vue";
 const movies = reactive([]);
 const loading = ref(true);
 const error = ref("");
 const activeGenreId = ref(genres[0].id);
+const props = defineProps(["searchQuery"]);
 
 const fetchMovies = async (query = {}) => {
   try {
@@ -25,18 +26,28 @@ const fetchMovies = async (query = {}) => {
 
 onMounted(() => fetchMovies());
 
-watch(activeGenreId, (id) => {
-  if (id === 1) return fetchMovies({});
-  const genre = genres.find((el) => el.id === id).searchParam;
+const genresSearchParam = computed(() => {
+  const id = activeGenreId.value;
+  // if (id === 1) return fetchMovies({});
+  return genres.find((el) => el.id === id).searchParam;
+});
+const nameSearchParam = computed(() => {
+  return props.searchQuery;
+});
+
+watch(activeGenreId, () => {
   return fetchMovies({
-    genres: genre,
+    genres: genresSearchParam.value,
+    name: nameSearchParam.value,
   });
 });
 
-// const query = computed(() => {
-//   return {};
-//   //movie_id={id}&name={name}&genres={genres}
-// });
+watch(nameSearchParam, () => {
+  return fetchMovies({
+    name: nameSearchParam.value,
+    genres: genresSearchParam.value,
+  });
+});
 </script>
 
 <template>

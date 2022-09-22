@@ -1,5 +1,5 @@
 <template>
-  <main class="not-found _container">
+  <main class="not-found container">
     <p class="not-found__text">
       Unfortunately, page you are requesting does not exist.
       <router-link to="/">Go to home page</router-link>

@@ -20,6 +20,7 @@ defineProps(["genres", "modelValue"]);
 .genres {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
+  overflow-x: auto;
 }
 </style>

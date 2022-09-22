@@ -1,13 +1,29 @@
 <script setup>
 import { ref } from "vue";
 import TheSearchButton from "./TheSearchButton.vue";
+defineProps(["modelValue"]);
+const emits = defineEmits(["update:modelValue"]);
 const active = ref(false);
+const changeHandler = (e) => {
+  emits("update:modelValue", e.target.value);
+  active.value = false;
+};
 </script>
 
 <template>
-  <div class="search">
-    <input type="text" class="search__input" :class="{ active }" />
-    <TheSearchButton class="search__icon" @click="active = !active" />
+  <div class="search" :class="{ active }">
+    <input
+      v-bind="$attrs"
+      :value="modelValue"
+      @change="changeHandler"
+      type="text"
+      class="search__input"
+    />
+    <TheSearchButton
+      class="search__icon"
+      :active="active"
+      @click="active = !active"
+    />
   </div>
 </template>
 
@@ -30,16 +46,26 @@ const active = ref(false);
     display: none;
     // transform: translate(100%, 0);
     margin-right: 10px;
-    transition: 1s ease-in-out;
-    &.active {
+    transition: 0.6s ease-in-out;
+  }
+  &.active {
+    .search__input {
       display: block;
       width: 200px;
     }
-  }
-  @media (max-width: $sm) {
-    position: absolute;
-    z-index: 101;
-    width: 100%;
+    @media (max-width: $sm) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 101;
+      justify-content: center;
+      background: rgba(196, 196, 196);
+      border-radius: 0;
+      .search__input {
+        flex: 1 1 auto;
+      }
+    }
   }
 }
 </style>

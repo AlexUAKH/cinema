@@ -1,10 +1,13 @@
 <script setup>
+import CloseIcon from "./icons/CloseIcon.vue";
 import SearchIcon from "./icons/SearchIcon.vue";
+defineProps(["active"]);
 </script>
 
 <template>
   <button class="button">
-    <SearchIcon size="30" />
+    <CloseIcon v-if="active" size="35" />
+    <SearchIcon v-else size="30" />
   </button>
 </template>
 

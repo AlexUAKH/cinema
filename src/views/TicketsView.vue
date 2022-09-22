@@ -86,6 +86,15 @@ const book = async () => {
 };
 
 watch(
+  () => selectedDay.value,
+  () => {
+    selectedTime.value = null;
+    selectedSeat.value = null;
+    seats.length = 0;
+  }
+);
+
+watch(
   () => selectedTime.value,
   (time) => {
     if (time) {

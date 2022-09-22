@@ -1,10 +1,21 @@
 <script setup>
 import TheLogo from "@/components/TheLogo.vue";
+import TheSearch from "@/components/TheSearch.vue";
+import { useRoute, useRouter } from "vue-router";
+defineProps(["modelValue"]);
+defineEmits(["update:modelValue"]);
+const router = useRouter();
+const route = useRoute();
 </script>
 
 <template>
   <header class="header container">
-    <TheLogo />
+    <TheLogo @click="router.push('/')" />
+    <TheSearch
+      v-if="route.name === 'home'"
+      :model-value="modelValue"
+      @update:model-value="$emit('update:modelValue', $event)"
+    />
   </header>
 </template>
 

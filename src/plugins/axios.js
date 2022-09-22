@@ -2,6 +2,7 @@ import axios from "axios";
 
 const headers = {
   "Content-Type": "application/json",
+  // "Access-Control-Allow-Origin": "*"
 };
 const $http = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,

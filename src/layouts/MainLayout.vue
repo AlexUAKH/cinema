@@ -1,13 +1,15 @@
 <script setup>
+import { ref } from "vue";
 import { RouterView } from "vue-router";
 import TheFooter from "./mainLayout/TheFooter.vue";
 import TheHeader from "./mainLayout/TheHeader.vue";
+const searchQuery = ref("");
 </script>
 
 <template>
   <div class="layout">
-    <TheHeader class="layout__header" />
-    <RouterView class="layout__main" />
+    <TheHeader class="layout__header" v-model="searchQuery" />
+    <RouterView class="layout__main" :searchQuery="searchQuery" />
     <TheFooter class="layout__footer" />
   </div>
 </template>

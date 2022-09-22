@@ -13,7 +13,7 @@ const props = defineProps(["movies"]);
       v-for="movie in movies"
       :key="movie.id"
       :movie="movie"
-      @click="router.push(`/${movie.id}`)"
+      @click="router.push(`movie/${movie.id}`)"
     />
   </section>
 </template>

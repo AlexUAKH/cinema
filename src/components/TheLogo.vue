@@ -14,12 +14,12 @@
 .logo {
   display: flex;
   align-items: center;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 900;
   text-transform: uppercase;
   &__img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
   @media (min-width: $md) {
     font-size: 40px;

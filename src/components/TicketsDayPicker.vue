@@ -35,16 +35,27 @@ const select = (day) => {
 <style lang="scss" scoped>
 @import "@/assets/styles/variables";
 .days {
+  margin: 0 auto;
   display: flex;
   gap: 20px;
-  justify-content: center;
   align-items: center;
   overflow-x: auto;
+  padding-bottom: 5px;
+  @media (min-width: $md) {
+    justify-content: center;
+  }
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #fa6218;
+  }
   &__day {
     padding: 5px;
     border: 2px solid white;
     border-radius: 8px;
     width: 50px;
+    flex-shrink: 0;
     cursor: pointer;
     & p {
       text-align: center;

@@ -33,12 +33,13 @@ defineEmits(["book"]);
 <style lang="scss" scoped>
 @import "@/assets/styles/variables";
 .total {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 350px;
-  margin-left: 100px;
+  @media (min-width: $sm) {
+    width: 350px;
+    margin-left: 100px;
+  }
   &__row {
     display: flex;
     width: 100%;

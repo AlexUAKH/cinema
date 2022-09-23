@@ -135,6 +135,7 @@ watch(
       :selectedDay="selectedDay"
       :selectedTime="selectedTime"
       @book="book"
+      class="tickets__total"
     />
     <teleport to="body">
       <TheBookingResultModal1
@@ -165,6 +166,7 @@ watch(
     margin-top: 20px;
   }
   &__total {
+    margin-top: 20px;
   }
 }
 </style>

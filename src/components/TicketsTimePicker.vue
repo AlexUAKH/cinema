@@ -25,14 +25,16 @@ watch(
 
 <template>
   <div class="times">
-    <div
-      class="times__time"
-      :class="{ active: active === time }"
-      v-for="time in times"
-      :key="time"
-      @click="() => select(time)"
-    >
-      {{ time }}
+    <div class="times__wrapper">
+      <div
+        class="times__time"
+        :class="{ active: active === time }"
+        v-for="time in times"
+        :key="time"
+        @click="() => select(time)"
+      >
+        {{ time }}
+      </div>
     </div>
   </div>
 </template>
@@ -40,13 +42,22 @@ watch(
 <style lang="scss" scoped>
 @import "@/assets/styles/variables";
 .times {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
   overflow-x: auto;
-  @media (min-width: $md) {
-    gap: 20px;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #fa6218;
+  }
+  &__wrapper {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 5px;
+    align-items: center;
+    @media (min-width: $md) {
+      justify-content: center;
+      gap: 20px;
+    }
   }
   &__time {
     padding: 5px;

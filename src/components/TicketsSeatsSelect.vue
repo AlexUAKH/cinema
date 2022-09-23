@@ -118,9 +118,11 @@ const select = (row, seat) => {
   &__map {
     margin-top: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    row-gap: 10px;
+    column-gap: 40px;
     &_reserved,
     &_available,
     &_selected {

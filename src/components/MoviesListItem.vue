@@ -17,18 +17,24 @@ const props = defineProps(["movie"]);
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto 1fr;
   background: $card-bg-color;
   border-radius: 6px;
   overflow: hidden;
+  align-items: center;
   &__img {
     width: 100%;
-    padding-top: 148%;
+    padding: 0 0 148% 0;
     position: relative;
+    overflow: hidden;
     & img {
       position: absolute;
       top: 0;
       width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
     }
   }
   &__title {

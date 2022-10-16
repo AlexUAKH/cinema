@@ -4,12 +4,16 @@ const headers = {
   "Content-Type": "application/json",
   // "Access-Control-Allow-Origin": "*"
 };
+const $http_t = axios.create({
+  baseURL: import.meta.env.VITE_APP_BASE_URL_TEMP,
+  headers,
+});
 const $http = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
   headers,
 });
 
-export { $http };
+export { $http, $http_t };
 
 // "Access-Control-Allow-Methods":
 // "PUT, GET, POST, DELETE, OPTIONS, GET, POST, OPTIONS",

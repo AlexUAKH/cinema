@@ -35,7 +35,7 @@ onMounted(() => fetchMovie());
           <img :src="movie.image" :alt="movie.name" />
           <button
             class="movie__buy"
-            @click="router.push(`/tickets?id=${movie.id}&title=${movie.name}`)"
+            @click="router.push(`/tickets?id=${movie._id}&title=${movie.name}`)"
           >
             Купити квиток
           </button>

@@ -22,5 +22,6 @@ defineProps(["genres", "modelValue"]);
   gap: 20px;
   // flex-wrap: wrap;
   overflow-x: auto;
+  padding-bottom: 15px;
 }
 </style>

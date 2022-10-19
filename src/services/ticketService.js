@@ -1,19 +1,19 @@
-import { $http_t } from "@/plugins/axios";
+import { $http } from "@/plugins/axios";
 
 export const getMovieSessions = async (id) => {
-  const res = await $http_t.get(`/movieShows?movie_id=${id}`);
+  const res = await $http.get(`/movieShows/${id}`);
   return res.data.data[String(id)];
 };
 
 export const getSeats = async ({ id, time, day }) => {
-  const res = await $http_t.get(
+  const res = await $http.get(
     `/showPlaces?movie_id=${id}&daytime=${time}&showdate=${day}`
   );
   return Object.values(res.data.data);
 };
 
 export const bookSeat = async (data) => {
-  const res = await $http_t.post("/bookPlace", data);
+  const res = await $http.post("/bookPlace", data);
   return res.data.data;
 };
 

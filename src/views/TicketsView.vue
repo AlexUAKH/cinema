@@ -68,6 +68,7 @@ const book = async () => {
     daytime: selectedTime.value,
   };
   try {
+    error.value = "";
     loading.value = true;
     results.value = await bookSeat(request);
   } catch (e) {
@@ -76,6 +77,7 @@ const book = async () => {
     alert("Не вдалося зарезервувати квиток");
   } finally {
     loading.value = false;
+    selectedSeat.value = null;
     isResultsModalOpen.value = true;
     seatsAviable({
       id: id.value,
@@ -98,6 +100,7 @@ watch(
   () => selectedTime.value,
   (time) => {
     if (time) {
+      selectedSeat.value = null;
       seatsAviable({
         id: id.value,
         time: selectedTime.value,

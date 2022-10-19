@@ -11,9 +11,9 @@ const props = defineProps(["movies"]);
     <MoviesListItem
       class="list__item"
       v-for="movie in movies"
-      :key="movie.id"
+      :key="movie._id"
       :movie="movie"
-      @click="router.push(`movie/${movie.id}`)"
+      @click="router.push(`movie/${movie._id}`)"
     />
   </section>
 </template>

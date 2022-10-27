@@ -18,7 +18,9 @@ defineProps(["active"]);
   align-items: center;
   transition: 0.3s;
   background: transparent;
-  border: none;
+  border: 1px solid black;
+  background: rgba(196, 196, 196, 0.759);
+  border-radius: 5px;
   @media (min-width: $md) {
     &:hover {
       opacity: 0.6;

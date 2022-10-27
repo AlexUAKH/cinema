@@ -5,7 +5,8 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -15,6 +16,8 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
+    "@testing-library/dom": "^8.19.0",
+    "@testing-library/vue": "^6.6.1",
     "@vitejs/plugin-vue": "^3.0.3",
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.22.0",

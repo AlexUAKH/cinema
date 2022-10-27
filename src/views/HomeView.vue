@@ -32,6 +32,7 @@ const genresSearchParam = computed(() => {
   return genres.find((el) => el.id === id).searchParam;
 });
 const nameSearchParam = computed(() => {
+  console.log("ser: ", props.searchQuery);
   return props.searchQuery;
 });
 
